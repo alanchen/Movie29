@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "YouTubeAPIService.h"
+
 @interface AppDelegate ()
 
 @end
@@ -18,6 +20,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self initWindow];
+    
+    [[YouTubeAPIService sharedInstance] apiSearchVideoDetaiilWithQuery:@"miss A" maxResults:10 order:nil params:nil
+                                                            success:^(NSMutableArray *results, id responseObject, id info) {
+                                                               
+                                                                NSLog(@"%@",responseObject);
+                                                                
+                                                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                                
+                                                            }];
     
     return YES;
 }

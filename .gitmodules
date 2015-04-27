@@ -1,0 +1,3 @@
+[submodule "Venders/ACYoutubePlayer"]
+	path = Venders/ACYoutubePlayer
+	url = git@github.com:alanchen/ACYoutubePlayer.git
