@@ -51,7 +51,6 @@
 -(void)initWindow
 {
     ChannelList *vc = [[ChannelList alloc] init];
-    vc.view.backgroundColor = [UIColor redColor];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

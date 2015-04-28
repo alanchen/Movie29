@@ -7,6 +7,7 @@
 //
 
 #import "ChannelHeader.h"
+#import "GlobalVar.h"
 
 @implementation ChannelHeader
 
@@ -22,6 +23,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.backgroundColor = ColorRed_alpha(0.9);
+        
         self.label = [self addLabel];
     }
     
@@ -31,7 +34,8 @@
 -(UILabel *)addLabel
 {
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectZero];
-    l.font = [UIFont  systemFontOfSize:14];
+    l.font = [UIFont  boldSystemFontOfSize:18];
+    l.textColor = [UIColor whiteColor];
     l.backgroundColor = [UIColor clearColor];
     [self addSubview:l];
     

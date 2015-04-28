@@ -1,41 +1,38 @@
 //
-//  ChannelList.m
+//  DetailVC.m
 //  Movie29
 //
-//  Created by alan on 2015/4/27.
+//  Created by alan on 2015/4/28.
 //  Copyright (c) 2015年 alan. All rights reserved.
 //
 
-#import "ChannelList.h"
-#import "APIHelper.h"
-#import "MainMovieCell.h"
-#import <AFNetworking/UIImageView+AFNetworking.h>
-#import "ChannelHeader.h"
-#import "ACConstraintHelper.h"
-
+#import "DetailVC.h"
+#import "YouTubeAPIService.h"
+#import "YouTubeListTableCell.h"
 #import "GlobalVar.h"
 
-#import "DetailVC.h"
+#import "ACConstraintHelper.h"
 
-@interface ChannelList ()<UITableViewDataSource,UITableViewDelegate>
+@interface DetailVC () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) UISegmentedControl *segControl;
 
-@property (nonatomic,strong) NSMutableArray *channelList;
-@property (nonatomic,strong) NSMutableArray *localList;
-@property (nonatomic,strong) NSMutableArray *westList;
+@property (nonatomic,strong) NSMutableArray *ytList;
 
 @end
 
-@implementation ChannelList
+
+@implementation DetailVC
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.view.backgroundColor= [UIColor whiteColor];
     self.navigationController.navigationBar.translucent = NO;
+    
+    [self setBackButton];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.tableView setFrame:self.view.frame];
@@ -43,10 +40,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.backgroundColor = [UIColor clearColor];
-    [self.tableView registerClass:[MainMovieCell class] forCellReuseIdentifier:@"MainMovieCell"];
+    [self.tableView registerClass:[YouTubeListTableCell class] forCellReuseIdentifier:@"YouTubeListTableCell"];
     [self.view addSubview:self.tableView];
     
-    NSMutableArray *itmes = [NSMutableArray arrayWithObjects:@"西片", @"國片", nil];
+    NSMutableArray *itmes = [NSMutableArray arrayWithObjects:@"介紹", @"影片", nil];
     self.segControl =[[UISegmentedControl alloc] initWithItems:itmes];
     self.segControl.segmentedControlStyle = UISegmentedControlStyleBar;
     self.segControl.tintColor = ColorRed;
@@ -54,28 +51,38 @@
     [self.segControl addTarget:self action:@selector(segControlChanged) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.segControl];
     
-    [self getChannelList];
+    [self getYoutubeVideos];
     
     [self addConstraint];
-    
-    [self initLayoutConfig];
+}
+
+#pragma mark -  Back 
+
+-(void)setBackButton
+{
+    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *backBtnImage = [UIImage imageNamed:@"back_icon"]  ;
+    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
+//    [backBtn.imageView]
+    [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
+//    backBtn.frame = CGRectMake(0, 0, 54, 30);
+    [backBtn sizeToFit];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
+    self.navigationItem.leftBarButtonItem = backButton;
+
+}
+-(void)goback
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -  Private
-
--(void)initLayoutConfig
-{
-    [[UISegmentedControl appearance] setTitleTextAttributes:@{UITextAttributeFont:[UIFont systemFontOfSize:16]}
-                                                   forState:UIControlStateNormal];
-
-
-}
 
 -(void)addConstraint
 {
     [self.tableView   setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.segControl  setTranslatesAutoresizingMaskIntoConstraints:NO];
-  
+    
     NSDictionary *metrics = @{@"space": @10,
                               @"space2x": @20};
     
@@ -100,29 +107,24 @@
                                                                             views:views]];
     
     [self.view addConstraints:myConstraints];
-
+    
 }
 
--(void)getChannelList
+-(void)getYoutubeVideos
 {
-    [APIHelper apiGetMovieListWithSuccess:^(NSMutableArray *list, id responseObject) {
-        
-        self.localList = [NSMutableArray array];
-        self.westList = [NSMutableArray array];
-        
-        for(ChannelModel *c in list)
-        {
-            if([c.type isEqualToString:@"local"])
-                [self.localList addObject:c];
-            else
-                [self.westList addObject:c];
-        }
-        
-        [self reloadTable];
-        
-    } failure:^(NSError *error) {
-        
-    }];
+    [[YouTubeAPIService sharedInstance] apiSearchVideoDetaiilWithQuery:self.movieModel.title_cn
+                                                            maxResults:10
+                                                                 order:nil
+                                                                params:nil
+                                                               success:^(NSMutableArray *results, id responseObject, id info) {
+                                                                   
+                                                                   self.ytList = results;
+                                                                   [self reloadTable];
+                                                                   
+                                                               } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                                   
+                                                               }];
+    
 }
 
 -(void)segControlChanged
@@ -132,11 +134,6 @@
 
 -(void)reloadTable
 {
-    if(self.segControl.selectedSegmentIndex == 0)
-        self.channelList = self.westList;
-    else
-        self.channelList = self.localList;
-    
     [self.tableView reloadData];
 }
 
@@ -145,66 +142,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    ChannelModel *c = [self.channelList objectAtIndex:indexPath.section];
-    MovieModel *m = [c.list objectAtIndex:indexPath.row];
-    
-    DetailVC *vc= [[DetailVC alloc] init];
-    vc.movieModel = m;
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableView Datasource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 111;
+    return 100;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.channelList count];
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    ChannelModel *c = [self.channelList objectAtIndex:section];
-    ChannelHeader *header = [ChannelHeader view];
-    header.label.text =c.name;
-    
-    return header;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 40;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return [self.channelList count];
+    return [self.ytList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChannelModel *c = [self.channelList objectAtIndex:indexPath.section];
-    MovieModel *m = [c.list objectAtIndex:indexPath.row];
+    YouTubeVideoModel *model = [self.ytList objectAtIndex:indexPath.row];
     
-    MainMovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainMovieCell"];
-    
-    cell.titleLabel.text = m.title_cn;
-    cell.timeLabel.text = m.time;
-    cell.imdbLabel.text = [m imdbString];
-    cell.durationLabel.text = [m duratioinString];
-    [cell.posterImageView setImageWithURL:[NSURL URLWithString:m.poster] placeholderImage:[UIImage imageNamed:@"placeholder_1"]];
-    
-    if([m.imdb intValue]!=0)
-        cell.imdbLabel.textColor = ColorRed;
-    else
-        cell.imdbLabel.textColor = [UIColor blackColor];
+    YouTubeListTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YouTubeListTableCell"];
+    [cell showData:model];
     
     return cell;
 }
-
 
 @end
