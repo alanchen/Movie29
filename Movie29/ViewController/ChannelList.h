@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ChannelList.h
 //  Movie29
 //
 //  Created by alan on 2015/4/27.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ChannelList : UIViewController
 
 @end
-

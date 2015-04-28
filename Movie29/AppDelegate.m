@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "YouTubeAPIService.h"
+#import "ChannelList.h"
 
 @interface AppDelegate ()
 
@@ -20,15 +20,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self initWindow];
-    
-    [[YouTubeAPIService sharedInstance] apiSearchVideoDetaiilWithQuery:@"miss A" maxResults:10 order:nil params:nil
-                                                            success:^(NSMutableArray *results, id responseObject, id info) {
-                                                               
-                                                                NSLog(@"%@",responseObject);
-                                                                
-                                                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                                                
-                                                            }];
     
     return YES;
 }
@@ -59,7 +50,7 @@
 
 -(void)initWindow
 {
-    UIViewController *vc = [[UIViewController alloc] init];
+    ChannelList *vc = [[ChannelList alloc] init];
     vc.view.backgroundColor = [UIColor redColor];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
     

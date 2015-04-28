@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7D93C5B61EBC3C06C0EAFECD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D83C075BF4A88FB18953283 /* libPods.a */; };
+		E72E54D01AEF3CC0000355F3 /* ChannelHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54CF1AEF3CC0000355F3 /* ChannelHeader.m */; };
 		E7E023621AEE30A800DFCDB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023611AEE30A800DFCDB5 /* main.m */; };
 		E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023641AEE30A800DFCDB5 /* AppDelegate.m */; };
-		E7E023681AEE30A800DFCDB5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023671AEE30A800DFCDB5 /* ViewController.m */; };
 		E7E0236D1AEE30A800DFCDB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E0236C1AEE30A800DFCDB5 /* Images.xcassets */; };
 		E7E0237C1AEE30A800DFCDB5 /* Movie29Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0237B1AEE30A800DFCDB5 /* Movie29Tests.m */; };
 		E7E0248D1AEE365700DFCDB5 /* YouTubeAPIService.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024701AEE365700DFCDB5 /* YouTubeAPIService.m */; };
@@ -30,6 +30,11 @@
 		E7E0249B1AEE365700DFCDB5 /* YTPlayerView-iframe-player.html in Resources */ = {isa = PBXBuildFile; fileRef = E7E024861AEE365700DFCDB5 /* YTPlayerView-iframe-player.html */; };
 		E7E0249C1AEE365700DFCDB5 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024891AEE365700DFCDB5 /* YTPlayerView.m */; };
 		E7E0249D1AEE365700DFCDB5 /* YouTubeListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0248C1AEE365700DFCDB5 /* YouTubeListTableCell.m */; };
+		E7E024A01AEE435100DFCDB5 /* APIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0249F1AEE435100DFCDB5 /* APIHelper.m */; };
+		E7E024A61AEE856000DFCDB5 /* ChannelList.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024A51AEE856000DFCDB5 /* ChannelList.m */; };
+		E7E024A91AEE874B00DFCDB5 /* ChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024A81AEE874B00DFCDB5 /* ChannelModel.m */; };
+		E7E024AC1AEE875900DFCDB5 /* MovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024AB1AEE875900DFCDB5 /* MovieModel.m */; };
+		E7E024AF1AEF14BA00DFCDB5 /* MainMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024AE1AEF14BA00DFCDB5 /* MainMovieCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,13 +51,13 @@
 		4D83C075BF4A88FB18953283 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		737B8A030BC5C9CF00DB6D5E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A432779852738E6850A2448F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E72E54CE1AEF3CC0000355F3 /* ChannelHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelHeader.h; sourceTree = "<group>"; };
+		E72E54CF1AEF3CC0000355F3 /* ChannelHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelHeader.m; sourceTree = "<group>"; };
 		E7E0235C1AEE30A800DFCDB5 /* Movie29.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie29.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E023601AEE30A800DFCDB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7E023611AEE30A800DFCDB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7E023631AEE30A800DFCDB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E7E023641AEE30A800DFCDB5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E7E023661AEE30A800DFCDB5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E7E023671AEE30A800DFCDB5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E7E0236C1AEE30A800DFCDB5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E7E023751AEE30A800DFCDB5 /* Movie29Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Movie29Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E0237A1AEE30A800DFCDB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +86,16 @@
 		E7E024891AEE365700DFCDB5 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
 		E7E0248B1AEE365700DFCDB5 /* YouTubeListTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeListTableCell.h; sourceTree = "<group>"; };
 		E7E0248C1AEE365700DFCDB5 /* YouTubeListTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeListTableCell.m; sourceTree = "<group>"; };
+		E7E0249E1AEE435100DFCDB5 /* APIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIHelper.h; sourceTree = "<group>"; };
+		E7E0249F1AEE435100DFCDB5 /* APIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIHelper.m; sourceTree = "<group>"; };
+		E7E024A41AEE856000DFCDB5 /* ChannelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelList.h; sourceTree = "<group>"; };
+		E7E024A51AEE856000DFCDB5 /* ChannelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelList.m; sourceTree = "<group>"; };
+		E7E024A71AEE874B00DFCDB5 /* ChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelModel.h; sourceTree = "<group>"; };
+		E7E024A81AEE874B00DFCDB5 /* ChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelModel.m; sourceTree = "<group>"; };
+		E7E024AA1AEE875900DFCDB5 /* MovieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieModel.h; sourceTree = "<group>"; };
+		E7E024AB1AEE875900DFCDB5 /* MovieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieModel.m; sourceTree = "<group>"; };
+		E7E024AD1AEF14BA00DFCDB5 /* MainMovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMovieCell.h; sourceTree = "<group>"; };
+		E7E024AE1AEF14BA00DFCDB5 /* MainMovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMovieCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +158,13 @@
 		E7E0235E1AEE30A800DFCDB5 /* Movie29 */ = {
 			isa = PBXGroup;
 			children = (
+				E7E024A11AEE852500DFCDB5 /* Model */,
+				E7E024A21AEE852500DFCDB5 /* View */,
+				E7E024A31AEE852500DFCDB5 /* ViewController */,
+				E7E0249E1AEE435100DFCDB5 /* APIHelper.h */,
+				E7E0249F1AEE435100DFCDB5 /* APIHelper.m */,
 				E7E023631AEE30A800DFCDB5 /* AppDelegate.h */,
 				E7E023641AEE30A800DFCDB5 /* AppDelegate.m */,
-				E7E023661AEE30A800DFCDB5 /* ViewController.h */,
-				E7E023671AEE30A800DFCDB5 /* ViewController.m */,
 				E7E0236C1AEE30A800DFCDB5 /* Images.xcassets */,
 				E7E0235F1AEE30A800DFCDB5 /* Supporting Files */,
 			);
@@ -281,6 +299,37 @@
 				E7E0248C1AEE365700DFCDB5 /* YouTubeListTableCell.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E7E024A11AEE852500DFCDB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E7E024A71AEE874B00DFCDB5 /* ChannelModel.h */,
+				E7E024A81AEE874B00DFCDB5 /* ChannelModel.m */,
+				E7E024AA1AEE875900DFCDB5 /* MovieModel.h */,
+				E7E024AB1AEE875900DFCDB5 /* MovieModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E7E024A21AEE852500DFCDB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7E024AD1AEF14BA00DFCDB5 /* MainMovieCell.h */,
+				E7E024AE1AEF14BA00DFCDB5 /* MainMovieCell.m */,
+				E72E54CE1AEF3CC0000355F3 /* ChannelHeader.h */,
+				E72E54CF1AEF3CC0000355F3 /* ChannelHeader.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7E024A31AEE852500DFCDB5 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E7E024A41AEE856000DFCDB5 /* ChannelList.h */,
+				E7E024A51AEE856000DFCDB5 /* ChannelList.m */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,12 +475,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E023681AEE30A800DFCDB5 /* ViewController.m in Sources */,
+				E7E024AC1AEE875900DFCDB5 /* MovieModel.m in Sources */,
+				E7E024A61AEE856000DFCDB5 /* ChannelList.m in Sources */,
 				E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */,
 				E7E0249C1AEE365700DFCDB5 /* YTPlayerView.m in Sources */,
 				E7E0248E1AEE365700DFCDB5 /* YouTubeVideoModel.m in Sources */,
 				E7E024901AEE365700DFCDB5 /* ACYTControlView.m in Sources */,
 				E7E024911AEE365700DFCDB5 /* ACYTPlayerView.m in Sources */,
+				E7E024A01AEE435100DFCDB5 /* APIHelper.m in Sources */,
+				E7E024A91AEE874B00DFCDB5 /* ChannelModel.m in Sources */,
+				E72E54D01AEF3CC0000355F3 /* ChannelHeader.m in Sources */,
+				E7E024AF1AEF14BA00DFCDB5 /* MainMovieCell.m in Sources */,
 				E7E0248D1AEE365700DFCDB5 /* YouTubeAPIService.m in Sources */,
 				E7E0248F1AEE365700DFCDB5 /* ACConstraintHelper.m in Sources */,
 				E7E0249D1AEE365700DFCDB5 /* YouTubeListTableCell.m in Sources */,
@@ -546,6 +600,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Movie29/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -557,6 +612,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Movie29/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
