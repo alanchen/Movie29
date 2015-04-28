@@ -34,7 +34,7 @@
 -(UILabel *)addLabel
 {
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectZero];
-    l.font = [UIFont  boldSystemFontOfSize:18];
+    l.font = [UIFont  systemFontOfSize:15];
     l.textColor = [UIColor whiteColor];
     l.backgroundColor = [UIColor clearColor];
     [self addSubview:l];

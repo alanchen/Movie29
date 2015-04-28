@@ -56,6 +56,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navi;
     [self.window makeKeyAndVisible];
+    
+    [self initLayoutConfig];
 }
+
+-(void)initLayoutConfig
+{
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{UITextAttributeFont:[UIFont systemFontOfSize:14]}
+                                                   forState:UIControlStateNormal];
+    
+    
+}
+
 
 @end

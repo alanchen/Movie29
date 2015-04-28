@@ -33,9 +33,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.view.backgroundColor= [UIColor whiteColor];
-    self.navigationController.navigationBar.translucent = NO;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.tableView setFrame:self.view.frame];
@@ -57,19 +54,9 @@
     [self getChannelList];
     
     [self addConstraint];
-    
-    [self initLayoutConfig];
 }
 
 #pragma mark -  Private
-
--(void)initLayoutConfig
-{
-    [[UISegmentedControl appearance] setTitleTextAttributes:@{UITextAttributeFont:[UIFont systemFontOfSize:16]}
-                                                   forState:UIControlStateNormal];
-
-
-}
 
 -(void)addConstraint
 {
@@ -158,7 +145,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 111;
+    return 96;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -177,7 +164,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 40;
+    return 30;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex

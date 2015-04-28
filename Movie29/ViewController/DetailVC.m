@@ -9,7 +9,6 @@
 #import "DetailVC.h"
 #import "YouTubeAPIService.h"
 #import "YouTubeListTableCell.h"
-#import "GlobalVar.h"
 
 #import "ACConstraintHelper.h"
 
@@ -28,11 +27,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.view.backgroundColor= [UIColor whiteColor];
-    self.navigationController.navigationBar.translucent = NO;
-    
-    [self setBackButton];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.tableView setFrame:self.view.frame];
@@ -54,26 +48,6 @@
     [self getYoutubeVideos];
     
     [self addConstraint];
-}
-
-#pragma mark -  Back 
-
--(void)setBackButton
-{
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *backBtnImage = [UIImage imageNamed:@"back_icon"]  ;
-    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
-//    [backBtn.imageView]
-    [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
-//    backBtn.frame = CGRectMake(0, 0, 54, 30);
-    [backBtn sizeToFit];
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
-    self.navigationItem.leftBarButtonItem = backButton;
-
-}
--(void)goback
-{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -  Private

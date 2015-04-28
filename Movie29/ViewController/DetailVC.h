@@ -6,10 +6,9 @@
 //  Copyright (c) 2015年 alan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "MovieModel.h"
+#import "BaseVC.h"
 
-@interface DetailVC : UIViewController
+@interface DetailVC : BaseVC
 
 @property (nonatomic,strong) MovieModel *movieModel;
 

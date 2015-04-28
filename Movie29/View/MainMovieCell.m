@@ -24,10 +24,10 @@
         [self.contentView addSubview:self.posterImageView];
         
         self.titleLabel = [self addLabel];
-        self.titleLabel.font = [UIFont systemFontOfSize:22];
+        self.titleLabel.font = [UIFont systemFontOfSize:16];
         
         self.timeLabel = [self addLabel];
-        self.timeLabel.font = [UIFont systemFontOfSize:18];
+        self.timeLabel.font = [UIFont systemFontOfSize:14];
         
         self.durationLabel = [self addLabel];
         self.imdbLabel = [self addLabel];
@@ -41,7 +41,7 @@
 -(UILabel *)addLabel
 {
     UILabel *l = [[UILabel alloc] initWithFrame:CGRectZero];
-    l.font = [UIFont  systemFontOfSize:14];
+    l.font = [UIFont  systemFontOfSize:12];
     l.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:l];
     
@@ -58,8 +58,8 @@
     
     NSDictionary *metrics = @{@"space": @10,
                               @"space2x": @20,
-                              @"imgW": @(60),
-                              @"imgH": @(90)};
+                              @"imgW": @(50),
+                              @"imgH": @(75)};
     
     NSDictionary *views = @{@"imgView": self.posterImageView,
                             @"title": self.titleLabel,

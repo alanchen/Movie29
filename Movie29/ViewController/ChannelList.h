@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 alan. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseVC.h"
 
-@interface ChannelList : UIViewController
+@interface ChannelList : BaseVC
 
 @end

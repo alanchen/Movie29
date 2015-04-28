@@ -11,6 +11,7 @@
 		E72E54D01AEF3CC0000355F3 /* ChannelHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54CF1AEF3CC0000355F3 /* ChannelHeader.m */; };
 		E72E54D41AEF50CC000355F3 /* GlobalVar.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D31AEF50CC000355F3 /* GlobalVar.m */; };
 		E72E54D71AEF59CA000355F3 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D61AEF59CA000355F3 /* DetailVC.m */; };
+		E72E54DA1AEF670C000355F3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D91AEF670C000355F3 /* BaseVC.m */; };
 		E7E023621AEE30A800DFCDB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023611AEE30A800DFCDB5 /* main.m */; };
 		E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023641AEE30A800DFCDB5 /* AppDelegate.m */; };
 		E7E0236D1AEE30A800DFCDB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E0236C1AEE30A800DFCDB5 /* Images.xcassets */; };
@@ -59,6 +60,8 @@
 		E72E54D31AEF50CC000355F3 /* GlobalVar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVar.m; sourceTree = "<group>"; };
 		E72E54D51AEF59CA000355F3 /* DetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailVC.h; sourceTree = "<group>"; };
 		E72E54D61AEF59CA000355F3 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
+		E72E54D81AEF670C000355F3 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		E72E54D91AEF670C000355F3 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		E7E0235C1AEE30A800DFCDB5 /* Movie29.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie29.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E023601AEE30A800DFCDB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7E023611AEE30A800DFCDB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 				E7E024A51AEE856000DFCDB5 /* ChannelList.m */,
 				E72E54D51AEF59CA000355F3 /* DetailVC.h */,
 				E72E54D61AEF59CA000355F3 /* DetailVC.m */,
+				E72E54D81AEF670C000355F3 /* BaseVC.h */,
+				E72E54D91AEF670C000355F3 /* BaseVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -496,6 +501,7 @@
 				E72E54D41AEF50CC000355F3 /* GlobalVar.m in Sources */,
 				E7E024AC1AEE875900DFCDB5 /* MovieModel.m in Sources */,
 				E7E024A61AEE856000DFCDB5 /* ChannelList.m in Sources */,
+				E72E54DA1AEF670C000355F3 /* BaseVC.m in Sources */,
 				E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */,
 				E7E0249C1AEE365700DFCDB5 /* YTPlayerView.m in Sources */,
 				E72E54D71AEF59CA000355F3 /* DetailVC.m in Sources */,
