@@ -10,6 +10,8 @@
 
 #import "ChannelList.h"
 
+#import "GlobalVar.h"
+
 @interface AppDelegate ()
 
 @end
@@ -62,8 +64,11 @@
 
 -(void)initLayoutConfig
 {
-    [[UISegmentedControl appearance] setTitleTextAttributes:@{UITextAttributeFont:[UIFont systemFontOfSize:14]}
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}
                                                    forState:UIControlStateNormal];
+    
+    [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : ColorRed }];
+    
     
     
 }

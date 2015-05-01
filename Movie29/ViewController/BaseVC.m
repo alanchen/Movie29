@@ -26,14 +26,29 @@
             UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
             UIImage *backBtnImage = [UIImage imageNamed:@"back_icon"]  ;
             [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
-            [backBtn addTarget:self action:@selector(goback) forControlEvents:UIControlEventTouchUpInside];
             [backBtn sizeToFit];
-            UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn] ;
-            self.navigationItem.leftBarButtonItem = backButton;
+            [self addTopLeftButton:backBtn target:self action:@selector(goback)];
 
         }
     }
     
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+}
+
+-(void)addTopRightButton:(UIButton *) btn target:(id)t action:(SEL)a
+{
+    [btn addTarget:t action:a forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn] ;
+    self.navigationItem.rightBarButtonItem = item;
+}
+
+-(void)addTopLeftButton:(UIButton *) btn target:(id)t action:(SEL)a
+{
+    [btn addTarget:t action:a forControlEvents:UIControlEventTouchUpInside];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn] ;
+    self.navigationItem.leftBarButtonItem = item;
 }
 
 #pragma mark -

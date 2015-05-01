@@ -44,4 +44,61 @@
     return self;
 }
 
+-(NSArray *)listAt9
+{
+    if(_listAt9)
+        return _listAt9;
+    
+    _listAt9 = [self nineOnlyList];
+
+    return _listAt9;
+}
+
+-(NSArray *)filteredMoviesBy:(NSString *)clock // 00~23
+{
+    NSPredicate *nineOnly = [NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        MovieModel *movie = (MovieModel *)evaluatedObject;
+        
+        if([movie.time hasPrefix:clock])
+            return YES;
+        
+        return NO;
+    }];
+    
+    NSArray *filteredArray = [self.list filteredArrayUsingPredicate:nineOnly];
+    
+    return filteredArray;
+}
+
+-(NSArray *)nineOnlyList
+{
+    NSArray *filteredArray = [self filteredMoviesBy:@"21"];
+    
+    if([filteredArray count]>1){
+        filteredArray = [NSArray arrayWithObject:[filteredArray lastObject]];
+    }
+    else if([filteredArray count]==0)
+    {
+        filteredArray = [self filteredMoviesBy:@"20"];
+        
+        if([filteredArray count]>1){
+            filteredArray = [NSArray arrayWithObject:[filteredArray lastObject]];
+        }
+        else if([filteredArray count]==0)
+        {
+            filteredArray = [self filteredMoviesBy:@"19"];
+            
+            if([filteredArray count]>1){
+                filteredArray = [NSArray arrayWithObject:[filteredArray lastObject]];
+            }
+            else if([filteredArray count]==0){
+                filteredArray = [self filteredMoviesBy:@"22"];
+            }
+        }
+    }
+
+    return filteredArray;
+    
+}
+
 @end

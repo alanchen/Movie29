@@ -15,7 +15,7 @@
     if([self.imdb integerValue]==0)
         return [NSString stringWithFormat:@"IMDB : 無"];
     
-    return [NSString stringWithFormat:@"IMDB : %@",self.imdb];
+    return [NSString stringWithFormat:@"IMDB : %.1f",[self.imdb floatValue]];
 }
 
 -(NSString *)duratioinString

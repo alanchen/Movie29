@@ -14,4 +14,7 @@
 
 @interface BaseVC : UIViewController
 
+-(void)addTopRightButton:(UIButton *) btn target:(id)t action:(SEL)a;
+-(void)addTopLeftButton:(UIButton *) btn target:(id)t action:(SEL)a;
+
 @end

@@ -7,15 +7,23 @@
 //
 
 #import "ChannelList.h"
-#import "APIHelper.h"
-#import "MainMovieCell.h"
+
+// tools
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "APIHelper.h"
 #import "ChannelHeader.h"
 #import "ACConstraintHelper.h"
 
-#import "GlobalVar.h"
+// views
+#import "MainMovieCell.h"
 
+// myOwnData
+#import "GlobalVar.h"
+#import "UserSettings.h"
+
+// viewcontrollers
 #import "DetailVC.h"
+#import "SettingsVC.h"
 
 @interface ChannelList ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -33,6 +41,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setBackgroundImage:[UIImage imageNamed:@"settings_icon"] forState:UIControlStateNormal];
+    [btn sizeToFit];
+    [self addTopRightButton:btn target:self action:@selector(gotoSettings)];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.tableView setFrame:self.view.frame];
@@ -54,6 +67,13 @@
     [self getChannelList];
     
     [self addConstraint];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self reloadTable];
 }
 
 #pragma mark -  Private
@@ -92,7 +112,7 @@
 
 -(void)getChannelList
 {
-    [APIHelper apiGetMovieListWithSuccess:^(NSMutableArray *list, id responseObject) {
+    [APIHelper apiGetMovieListWithSuccess:^(NSMutableArray *list, NSTimeInterval time,id responseObject) {
         
         self.localList = [NSMutableArray array];
         self.westList = [NSMutableArray array];
@@ -112,13 +132,20 @@
     }];
 }
 
+-(void)gotoSettings
+{
+    SettingsVC *vc= [[SettingsVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 -(void)segControlChanged
 {
     [self reloadTable];
 }
 
+
 -(void)reloadTable
-{
+{    
     if(self.segControl.selectedSegmentIndex == 0)
         self.channelList = self.westList;
     else
@@ -134,7 +161,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     ChannelModel *c = [self.channelList objectAtIndex:indexPath.section];
-    MovieModel *m = [c.list objectAtIndex:indexPath.row];
+    MovieModel *m = [UserSettings isShowNineOnly]? [c.listAt9 objectAtIndex:indexPath.row]:[c.list objectAtIndex:indexPath.row];
     
     DetailVC *vc= [[DetailVC alloc] init];
     vc.movieModel = m;
@@ -169,13 +196,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return [self.channelList count];
+    ChannelModel *c = [self.channelList objectAtIndex:sectionIndex];
+    
+    return [UserSettings isShowNineOnly]?[c.listAt9 count]:[c.list count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChannelModel *c = [self.channelList objectAtIndex:indexPath.section];
-    MovieModel *m = [c.list objectAtIndex:indexPath.row];
+    MovieModel *m = [UserSettings isShowNineOnly]? [c.listAt9 objectAtIndex:indexPath.row]:[c.list objectAtIndex:indexPath.row];
     
     MainMovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MainMovieCell"];
     

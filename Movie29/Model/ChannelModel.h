@@ -14,7 +14,11 @@
 @property (nonatomic,strong) NSString *name;
 @property (nonatomic,strong) NSString *type; // local foreign
 @property (nonatomic,strong) NSMutableArray *list;
+@property (nonatomic,strong) NSArray *listAt9;
+
 
 +(ChannelModel *)modelWithData:(id)data;
+
+
 
 @end

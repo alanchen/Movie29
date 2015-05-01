@@ -12,7 +12,7 @@
 
 @interface APIHelper : NSObject
 
-+(AFHTTPRequestOperation *)apiGetMovieListWithSuccess:(void (^)(NSMutableArray *list, id responseObject))success
++(AFHTTPRequestOperation *)apiGetMovieListWithSuccess:(void (^)(NSMutableArray *list, NSTimeInterval time,id responseObject))success
                                               failure:(void (^)(NSError *error))failure;
 
 @end

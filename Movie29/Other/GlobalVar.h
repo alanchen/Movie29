@@ -12,6 +12,8 @@
 #define ColorRed ColorXRGB(216,60,22,1.0)
 #define ColorRed_alpha(a) ColorXRGB(216,60,22,a)
 
+#define ColorSettingBg ColorXRGB(239,239,244,1.0)
+
 
 
 #import <Foundation/Foundation.h>

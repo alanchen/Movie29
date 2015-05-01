@@ -10,7 +10,7 @@
 
 @implementation APIHelper
 
-+(AFHTTPRequestOperation *)apiGetMovieListWithSuccess:(void (^)(NSMutableArray *list, id responseObject))success
++(AFHTTPRequestOperation *)apiGetMovieListWithSuccess:(void (^)(NSMutableArray *list, NSTimeInterval time ,id responseObject))success
                                               failure:(void (^)(NSError *error))failure
 
 {
@@ -24,14 +24,17 @@
                                       
                                           NSMutableArray *list = [NSMutableArray array];
                                           
-                                          for(id obj in responseObject)
+                                          for(id obj in [responseObject objectForKey:@"channels"])
                                           {
                                               ChannelModel *c = [ChannelModel modelWithData:obj];
                                               [list addObject:c];
                                           }
                                           
+                                          
+                                          NSTimeInterval time = [[responseObject objectForKey:@"date"] doubleValue];
+                                          
                                           if(success)
-                                              success(list,responseObject);
+                                              success(list,time,responseObject);
                                       }
                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                           if(failure)
