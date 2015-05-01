@@ -13,6 +13,7 @@
 #import "APIHelper.h"
 #import "ChannelHeader.h"
 #import "ACConstraintHelper.h"
+#import "SVPullToRefresh.h"
 
 // views
 #import "MainMovieCell.h"
@@ -42,6 +43,8 @@
 {
     [super viewDidLoad];
     
+    self.title = @"今晚九點電影";
+    
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setBackgroundImage:[UIImage imageNamed:@"settings_icon"] forState:UIControlStateNormal];
     [btn sizeToFit];
@@ -58,15 +61,16 @@
     
     NSMutableArray *itmes = [NSMutableArray arrayWithObjects:@"西片", @"國片", nil];
     self.segControl =[[UISegmentedControl alloc] initWithItems:itmes];
-    self.segControl.segmentedControlStyle = UISegmentedControlStyleBar;
     self.segControl.tintColor = ColorRed;
     self.segControl.selectedSegmentIndex = 0;
     [self.segControl addTarget:self action:@selector(segControlChanged) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.segControl];
     
-    [self getChannelList];
-    
     [self addConstraint];
+    
+    [self setupPullTORefresh];
+    
+    [self.tableView triggerPullToRefresh];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -77,6 +81,29 @@
 }
 
 #pragma mark -  Private
+
+-(void)setupPullTORefresh
+{
+    __weak __typeof(self)weakSelf = self;
+ 
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [weakSelf getChannelList];
+    }];
+    
+    self.tableView.pullToRefreshView.arrowColor = ColorRed;
+    self.tableView.pullToRefreshView.textColor = ColorRed;
+    [self.tableView.pullToRefreshView setTitle:@"下拉更新節目表" forState:SVPullToRefreshStateStopped];
+    [self.tableView.pullToRefreshView setSubtitle:@"上次更新時間" forState:SVPullToRefreshStateStopped];
+
+    [self.tableView.pullToRefreshView setTitle:@"放開更新節目表" forState:SVPullToRefreshStateTriggered];
+    [self.tableView.pullToRefreshView setSubtitle:@"上次更新時間" forState:SVPullToRefreshStateTriggered];
+
+    [self.tableView.pullToRefreshView setTitle:@"更新中 ..." forState:SVPullToRefreshStateLoading];
+    [self.tableView.pullToRefreshView setSubtitle:@"請耐心等候並保持網路暢通" forState:SVPullToRefreshStateLoading];
+
+    self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+
+}
 
 -(void)addConstraint
 {
@@ -113,6 +140,7 @@
 -(void)getChannelList
 {
     [APIHelper apiGetMovieListWithSuccess:^(NSMutableArray *list, NSTimeInterval time,id responseObject) {
+        [self.tableView.pullToRefreshView stopAnimating];
         
         self.localList = [NSMutableArray array];
         self.westList = [NSMutableArray array];
@@ -128,7 +156,7 @@
         [self reloadTable];
         
     } failure:^(NSError *error) {
-        
+        [self.tableView.pullToRefreshView stopAnimating];
     }];
 }
 

@@ -14,6 +14,7 @@
 		E72E54DA1AEF670C000355F3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D91AEF670C000355F3 /* BaseVC.m */; };
 		E79AA7CD1AF1BCB4001F9F5D /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7CC1AF1BCB4001F9F5D /* SettingsVC.m */; };
 		E79AA7D01AF1C197001F9F5D /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7CF1AF1C197001F9F5D /* TableModel.m */; };
+		E79AA7D31AF38E28001F9F5D /* MovieDetailTable.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7D21AF38E28001F9F5D /* MovieDetailTable.m */; };
 		E7B0C7241AF06D2F0086FC21 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0C7231AF06D2F0086FC21 /* UserSettings.m */; };
 		E7E023621AEE30A800DFCDB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023611AEE30A800DFCDB5 /* main.m */; };
 		E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023641AEE30A800DFCDB5 /* AppDelegate.m */; };
@@ -69,6 +70,8 @@
 		E79AA7CC1AF1BCB4001F9F5D /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		E79AA7CE1AF1C197001F9F5D /* TableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableModel.h; sourceTree = "<group>"; };
 		E79AA7CF1AF1C197001F9F5D /* TableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableModel.m; sourceTree = "<group>"; };
+		E79AA7D11AF38E28001F9F5D /* MovieDetailTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailTable.h; sourceTree = "<group>"; };
+		E79AA7D21AF38E28001F9F5D /* MovieDetailTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailTable.m; sourceTree = "<group>"; };
 		E7B0C7221AF06D2F0086FC21 /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
 		E7B0C7231AF06D2F0086FC21 /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		E7E0235C1AEE30A800DFCDB5 /* Movie29.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie29.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -351,6 +354,8 @@
 				E7E024AE1AEF14BA00DFCDB5 /* MainMovieCell.m */,
 				E72E54CE1AEF3CC0000355F3 /* ChannelHeader.h */,
 				E72E54CF1AEF3CC0000355F3 /* ChannelHeader.m */,
+				E79AA7D11AF38E28001F9F5D /* MovieDetailTable.h */,
+				E79AA7D21AF38E28001F9F5D /* MovieDetailTable.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E79AA7D31AF38E28001F9F5D /* MovieDetailTable.m in Sources */,
 				E72E54D41AEF50CC000355F3 /* GlobalVar.m in Sources */,
 				E79AA7CD1AF1BCB4001F9F5D /* SettingsVC.m in Sources */,
 				E7E024AC1AEE875900DFCDB5 /* MovieModel.m in Sources */,
