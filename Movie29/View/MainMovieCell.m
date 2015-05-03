@@ -69,7 +69,7 @@
     
     NSMutableArray *myConstraints = [NSMutableArray array];
     
-    NSString *fh = @"H:|-(space)-[time(>=20)]-(space)-[imgView(imgW)]-(space)-[title(>=10)]-(space)-|";
+    NSString *fh = @"H:|-(space)-[time(40)]-(space)-[imgView(imgW)]-(space)-[title(>=10)]-(space)-|";
 
     [myConstraints addObjectsFromArray: [ACConstraintHelper constraintWidthFormat:fh
                                                                           metrics:metrics
