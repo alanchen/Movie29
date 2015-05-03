@@ -12,9 +12,11 @@
 		E72E54D41AEF50CC000355F3 /* GlobalVar.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D31AEF50CC000355F3 /* GlobalVar.m */; };
 		E72E54D71AEF59CA000355F3 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D61AEF59CA000355F3 /* DetailVC.m */; };
 		E72E54DA1AEF670C000355F3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D91AEF670C000355F3 /* BaseVC.m */; };
+		E78DF3461AF4E8990017F41C /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = E78DF3451AF4E8990017F41C /* UIView+Position.m */; };
 		E79AA7CD1AF1BCB4001F9F5D /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7CC1AF1BCB4001F9F5D /* SettingsVC.m */; };
 		E79AA7D01AF1C197001F9F5D /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7CF1AF1C197001F9F5D /* TableModel.m */; };
 		E79AA7D31AF38E28001F9F5D /* MovieDetailTable.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7D21AF38E28001F9F5D /* MovieDetailTable.m */; };
+		E7A4BB7D1AF5CC3500E10F43 /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BB7C1AF5CC3500E10F43 /* VideoPlayerView.m */; };
 		E7B0C7241AF06D2F0086FC21 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0C7231AF06D2F0086FC21 /* UserSettings.m */; };
 		E7E023621AEE30A800DFCDB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023611AEE30A800DFCDB5 /* main.m */; };
 		E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023641AEE30A800DFCDB5 /* AppDelegate.m */; };
@@ -66,12 +68,16 @@
 		E72E54D61AEF59CA000355F3 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		E72E54D81AEF670C000355F3 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		E72E54D91AEF670C000355F3 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		E78DF3441AF4E8990017F41C /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
+		E78DF3451AF4E8990017F41C /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		E79AA7CB1AF1BCB4001F9F5D /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
 		E79AA7CC1AF1BCB4001F9F5D /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		E79AA7CE1AF1C197001F9F5D /* TableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableModel.h; sourceTree = "<group>"; };
 		E79AA7CF1AF1C197001F9F5D /* TableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableModel.m; sourceTree = "<group>"; };
 		E79AA7D11AF38E28001F9F5D /* MovieDetailTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieDetailTable.h; sourceTree = "<group>"; };
 		E79AA7D21AF38E28001F9F5D /* MovieDetailTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailTable.m; sourceTree = "<group>"; };
+		E7A4BB7B1AF5CC3500E10F43 /* VideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerView.h; sourceTree = "<group>"; };
+		E7A4BB7C1AF5CC3500E10F43 /* VideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerView.m; sourceTree = "<group>"; };
 		E7B0C7221AF06D2F0086FC21 /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
 		E7B0C7231AF06D2F0086FC21 /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
 		E7E0235C1AEE30A800DFCDB5 /* Movie29.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie29.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +164,8 @@
 		E72E54D11AEF50BB000355F3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E78DF3441AF4E8990017F41C /* UIView+Position.h */,
+				E78DF3451AF4E8990017F41C /* UIView+Position.m */,
 				E72E54D21AEF50CC000355F3 /* GlobalVar.h */,
 				E72E54D31AEF50CC000355F3 /* GlobalVar.m */,
 				E7B0C7221AF06D2F0086FC21 /* UserSettings.h */,
@@ -356,6 +364,8 @@
 				E72E54CF1AEF3CC0000355F3 /* ChannelHeader.m */,
 				E79AA7D11AF38E28001F9F5D /* MovieDetailTable.h */,
 				E79AA7D21AF38E28001F9F5D /* MovieDetailTable.m */,
+				E7A4BB7B1AF5CC3500E10F43 /* VideoPlayerView.h */,
+				E7A4BB7C1AF5CC3500E10F43 /* VideoPlayerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -523,11 +533,13 @@
 				E79AA7CD1AF1BCB4001F9F5D /* SettingsVC.m in Sources */,
 				E7E024AC1AEE875900DFCDB5 /* MovieModel.m in Sources */,
 				E7E024A61AEE856000DFCDB5 /* ChannelList.m in Sources */,
+				E78DF3461AF4E8990017F41C /* UIView+Position.m in Sources */,
 				E72E54DA1AEF670C000355F3 /* BaseVC.m in Sources */,
 				E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */,
 				E7E0249C1AEE365700DFCDB5 /* YTPlayerView.m in Sources */,
 				E72E54D71AEF59CA000355F3 /* DetailVC.m in Sources */,
 				E7B0C7241AF06D2F0086FC21 /* UserSettings.m in Sources */,
+				E7A4BB7D1AF5CC3500E10F43 /* VideoPlayerView.m in Sources */,
 				E7E0248E1AEE365700DFCDB5 /* YouTubeVideoModel.m in Sources */,
 				E7E024901AEE365700DFCDB5 /* ACYTControlView.m in Sources */,
 				E7E024911AEE365700DFCDB5 /* ACYTPlayerView.m in Sources */,
@@ -650,7 +662,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Movie29/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -662,7 +674,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Movie29/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

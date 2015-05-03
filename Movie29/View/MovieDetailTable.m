@@ -68,20 +68,19 @@
 
 -(float)introHeight
 {
-    CGRect textRect = [[self introString] boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width, 2000)
+    CGRect textRect = [[self introString] boundingRectWithSize:CGSizeMake(self.tableView.frame.size.width-40, 2000)
                                                        options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
                                                     attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]}
                                                        context:nil];
-    return textRect.size.height;
+    return textRect.size.height+10;
 }
 
 -(NSString *)introString
 {
     NSString *title = @"簡介：\n   ";
-    
-    return [title stringByAppendingString:self.model.intro];
+    NSString *intro = [title stringByAppendingString:self.model.intro];
+    return intro;
 }
-
 
 #pragma mark - UITableView Delegate
 

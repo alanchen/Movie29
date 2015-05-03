@@ -53,12 +53,11 @@
 
 }
 
-#pragma mark - Private
 
 -(void)addBaseVCConstraint
 {
     [self.msgLabel   setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
+  
     NSDictionary *metrics = @{@"space": @10,
                               @"space2x": @20};
     

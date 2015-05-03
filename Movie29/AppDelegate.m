@@ -18,11 +18,14 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self initWindow];
+    [self initPlayer];
+    [self initLayoutConfig];
     
+    [self hidePlayVideoLayout];
+
     return YES;
 }
 
@@ -48,18 +51,40 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - Getter
+
+-(UINavigationController *)rootNavi
+{
+    return (UINavigationController *)self.window.rootViewController;
+}
+
+
+-(UIView *)rootView
+{
+    return self.rootNavi.view;
+}
+
 #pragma  mark - Init
 
 -(void)initWindow
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    
     ChannelList *vc = [[ChannelList alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:vc];
-    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navi;
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    [self initLayoutConfig];
+}
+
+
+-(void)initPlayer
+{
+    self.playerView = [[VideoPlayerView alloc] initWithFrame:CGRectMake(0, 0, self.window.width, self.window.width*0.56)];
+    [self.playerView.control.expandBtn addTarget:self action:@selector(expandPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.playerView.control.closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.window addSubview:self.playerView];
 }
 
 -(void)initLayoutConfig
@@ -69,8 +94,72 @@
     
     [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : ColorRed }];
     
+}
+
+#pragma mark - Video
+
+-(void)showPlayVideoLayoutDefault
+{
+    [[self rootView] setHidden:NO];
+    [self.playerView setHidden:NO];
     
+    [UIView animateWithDuration:0.2 animations:^{
+        self.playerView.top = 0;
+        [self.playerView layoutToFitWidth:self.window.width];
+        [self rootView].top = self.playerView.bottom;
+        [self rootView].height = self.window.height - self.playerView.height;
+        [self rootNavi].navigationBar.top = 0;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+-(void)showPlayVideoLayoutExtend
+{
+    [[self rootView] setHidden:YES];
+    [self.playerView setHidden:NO];
+
+    [UIView animateWithDuration:0.2 animations:^{
+        [self.playerView layoutToFitFullScreenSize:self.window.size];
+      } completion:^(BOOL finished) {
+        
+    }];
+}
+
+-(void)hidePlayVideoLayout
+{
+    [[self rootView] setHidden:NO];
+    [self.playerView setHidden:YES];
     
+    [UIView animateWithDuration:0.2 animations:^{
+        self.playerView.top = - self.playerView.height;
+        [self rootView].top = IsGreaterThanIOS7?20:0;
+        [self rootView].height  = IsGreaterThanIOS7?self.window.height -20:self.window.height ;
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+}
+
+-(void)expandPressed
+{
+    if(!self.playerView.control.expandBtn.isSelected)
+    {
+        [self.playerView showFullScreenControl:YES];
+        [self showPlayVideoLayoutExtend];
+    }
+    else
+    {
+        [self.playerView showFullScreenControl:NO];
+        [self showPlayVideoLayoutDefault];
+    }
+}
+
+-(void)closeAction
+{
+    [self.playerView clean];
+    [self hidePlayVideoLayout];
 }
 
 

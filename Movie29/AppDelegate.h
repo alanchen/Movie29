@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YouTubeVideoModel.h"
+#import "UIView+Position.h"
+#import "VideoPlayerView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic,strong) VideoPlayerView *playerView;
+
+-(void)showPlayVideoLayoutDefault;
+-(void)showPlayVideoLayoutExtend;
+-(void)hidePlayVideoLayout;
 
 @end
 

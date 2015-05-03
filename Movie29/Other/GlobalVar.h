@@ -14,6 +14,7 @@
 
 #define ColorSettingBg ColorXRGB(239,239,244,1.0)
 
+#define IsGreaterThanIOS7 ([[[UIDevice currentDevice] systemVersion] floatValue]>7.0)
 
 
 #import <Foundation/Foundation.h>

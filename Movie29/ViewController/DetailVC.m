@@ -15,6 +15,8 @@
 
 #import "MovieDetailTable.h"
 
+#import "AppDelegate.h"
+
 @interface DetailVC () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -31,6 +33,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.navigationController.navigationBar.translucent = NO;
     
     self.title = self.movieModel.title_cn;
 
@@ -59,7 +64,6 @@
     [self setupPullToRefresh];
     
     [self.tableView triggerPullToRefresh];
-
 }
 
 #pragma mark -  Private
@@ -96,10 +100,7 @@
     
     [myConstraints addObjectsFromArray: [ACConstraintHelper constraintFrame:self.detailView with:self.tableView]];
 
-
-    
     [self.view addConstraints:myConstraints];
-    
 }
 
 -(void)getYoutubeVideos
@@ -107,7 +108,7 @@
     [[YouTubeAPIService sharedInstance] apiSearchVideoDetaiilWithQuery:self.movieModel.title_cn
                                                             maxResults:30
                                                                  order:nil
-                                                                params:nil
+                                                                params:@"&videoEmbeddable=true"
                                                                success:^(NSMutableArray *results, id responseObject, id info) {
                                                                    [self.tableView.pullToRefreshView stopAnimating];
 
@@ -157,6 +158,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    YouTubeVideoModel *model = [self.ytList objectAtIndex:indexPath.row];
+    
+    [(AppDelegate *)[UIApplication sharedApplication].delegate showPlayVideoLayoutDefault];
+    
+    [[(AppDelegate *)[UIApplication sharedApplication].delegate playerView] playVideoWithVideoId:model.videoId
+                                                                                           title:model.title];
 }
 
 #pragma mark - UITableView Datasource
