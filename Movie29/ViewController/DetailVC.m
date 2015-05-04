@@ -108,7 +108,7 @@
     [[YouTubeAPIService sharedInstance] apiSearchVideoDetaiilWithQuery:self.movieModel.title_cn
                                                             maxResults:30
                                                                  order:nil
-                                                                params:@"&videoEmbeddable=true&relevanceLanguage=zh-Hant"
+                                                                params:@"&videoEmbeddable=true&relevanceLanguage=zh-Hant&safeSearch=none"
                                                                success:^(NSMutableArray *results, id responseObject, id info) {
                                                                    [self.tableView.pullToRefreshView stopAnimating];
 
