@@ -41,6 +41,7 @@
     [self.view addSubview:self.tableView];
     
     self.only9Switcher = [[UISwitch alloc] initWithFrame:CGRectZero];
+    self.only9Switcher.onTintColor = ColorRed;
     [self.only9Switcher setOn:[UserSettings isShowNineOnly] animated:NO];
     [self.only9Switcher addTarget:self action:@selector(switcherChanged:) forControlEvents:UIControlEventValueChanged];
     
