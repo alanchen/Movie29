@@ -28,7 +28,7 @@
         
         self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         [self.tableView setFrame:self.frame];
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.backgroundColor = [UIColor clearColor];
@@ -77,7 +77,7 @@
 
 -(NSString *)introString
 {
-    NSString *title = @"簡介：\n   ";
+    NSString *title = @"電影介紹：\n     ";
     NSString *intro = [title stringByAppendingString:self.model.intro];
     return intro;
 }
@@ -93,7 +93,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row==3)
+    if(indexPath.row==4)
         return [self introHeight];
     
     return 40;
@@ -106,7 +106,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,9 +128,15 @@
             cell.textLabel.text = [NSString stringWithFormat:@"英文片名："];
     }
     else  if(indexPath.row == 2){
-        cell.textLabel.text =self.model.imdbString;
+        if([self.model.duration length]>0)
+            cell.textLabel.text = [NSString stringWithFormat:@"本片片長：%@",self.model.duration];
+        else
+            cell.textLabel.text = [NSString stringWithFormat:@"本片片長："];
     }
     else  if(indexPath.row == 3){
+        cell.textLabel.text =self.model.imdbString;
+    }
+    else  if(indexPath.row == 4){
         cell.textLabel.text = [self introString];
     }
     

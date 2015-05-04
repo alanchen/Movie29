@@ -94,6 +94,8 @@
     
     [[UINavigationBar appearance]setTitleTextAttributes:@{NSForegroundColorAttributeName : ColorRed }];
     
+    [[UINavigationBar appearance] setTintColor:ColorRed];
+    
 }
 
 #pragma mark - Video
