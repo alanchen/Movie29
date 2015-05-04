@@ -16,6 +16,7 @@
 
 #define IsGreaterThanIOS7 ([[[UIDevice currentDevice] systemVersion] floatValue]>7.0)
 
+#define kAppVersion [[[NSBundle mainBundle]infoDictionary]objectForKey:@"CFBundleShortVersionString"]
 
 #import <Foundation/Foundation.h>
 

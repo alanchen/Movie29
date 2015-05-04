@@ -17,6 +17,7 @@
 		E79AA7D01AF1C197001F9F5D /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7CF1AF1C197001F9F5D /* TableModel.m */; };
 		E79AA7D31AF38E28001F9F5D /* MovieDetailTable.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7D21AF38E28001F9F5D /* MovieDetailTable.m */; };
 		E7A4BB7D1AF5CC3500E10F43 /* VideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BB7C1AF5CC3500E10F43 /* VideoPlayerView.m */; };
+		E7AE35311AF77957004B3FD0 /* localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7AE35331AF77957004B3FD0 /* localization.strings */; };
 		E7B0C7241AF06D2F0086FC21 /* UserSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B0C7231AF06D2F0086FC21 /* UserSettings.m */; };
 		E7E023621AEE30A800DFCDB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023611AEE30A800DFCDB5 /* main.m */; };
 		E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E023641AEE30A800DFCDB5 /* AppDelegate.m */; };
@@ -78,9 +79,13 @@
 		E79AA7D21AF38E28001F9F5D /* MovieDetailTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieDetailTable.m; sourceTree = "<group>"; };
 		E7A4BB7B1AF5CC3500E10F43 /* VideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerView.h; sourceTree = "<group>"; };
 		E7A4BB7C1AF5CC3500E10F43 /* VideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerView.m; sourceTree = "<group>"; };
+		E7AE35321AF77957004B3FD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/localization.strings; sourceTree = "<group>"; };
+		E7AE35351AF779E0004B3FD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/localization.strings; sourceTree = "<group>"; };
+		E7AE35361AF77A18004B3FD0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/localization.strings"; sourceTree = "<group>"; };
+		E7AE35371AF77A2B004B3FD0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/localization.strings"; sourceTree = "<group>"; };
 		E7B0C7221AF06D2F0086FC21 /* UserSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettings.h; sourceTree = "<group>"; };
 		E7B0C7231AF06D2F0086FC21 /* UserSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettings.m; sourceTree = "<group>"; };
-		E7E0235C1AEE30A800DFCDB5 /* Movie29.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie29.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7E0235C1AEE30A800DFCDB5 /* 今晚九點電影.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "今晚九點電影.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E023601AEE30A800DFCDB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7E023611AEE30A800DFCDB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E7E023631AEE30A800DFCDB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -189,7 +194,7 @@
 		E7E0235D1AEE30A800DFCDB5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E7E0235C1AEE30A800DFCDB5 /* Movie29.app */,
+				E7E0235C1AEE30A800DFCDB5 /* 今晚九點電影.app */,
 				E7E023751AEE30A800DFCDB5 /* Movie29Tests.xctest */,
 			);
 			name = Products;
@@ -215,6 +220,7 @@
 		E7E0235F1AEE30A800DFCDB5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E7AE35331AF77957004B3FD0 /* localization.strings */,
 				E7E023601AEE30A800DFCDB5 /* Info.plist */,
 				E7E023611AEE30A800DFCDB5 /* main.m */,
 			);
@@ -404,7 +410,7 @@
 			);
 			name = Movie29;
 			productName = Movie29;
-			productReference = E7E0235C1AEE30A800DFCDB5 /* Movie29.app */;
+			productReference = E7E0235C1AEE30A800DFCDB5 /* 今晚九點電影.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E7E023741AEE30A800DFCDB5 /* Movie29Tests */ = {
@@ -450,6 +456,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = E7E023531AEE30A800DFCDB5;
 			productRefGroup = E7E0235D1AEE30A800DFCDB5 /* Products */;
@@ -468,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7E024941AEE365700DFCDB5 /* yt_expand.png in Resources */,
+				E7AE35311AF77957004B3FD0 /* localization.strings in Resources */,
 				E7E024981AEE365700DFCDB5 /* yt_pause.png in Resources */,
 				E7E024991AEE365700DFCDB5 /* yt_play.png in Resources */,
 				E7E024971AEE365700DFCDB5 /* yt_next.png in Resources */,
@@ -573,6 +582,20 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		E7AE35331AF77957004B3FD0 /* localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7AE35321AF77957004B3FD0 /* Base */,
+				E7AE35351AF779E0004B3FD0 /* en */,
+				E7AE35361AF77A18004B3FD0 /* zh-Hans */,
+				E7AE35371AF77A2B004B3FD0 /* zh-Hant */,
+			);
+			name = localization.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		E7E0237D1AEE30A800DFCDB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -664,7 +687,7 @@
 				INFOPLIST_FILE = Movie29/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "今晚九點電影";
 			};
 			name = Debug;
 		};
@@ -676,7 +699,7 @@
 				INFOPLIST_FILE = Movie29/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "今晚九點電影";
 			};
 			name = Release;
 		};

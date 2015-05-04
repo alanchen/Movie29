@@ -12,6 +12,7 @@
 
 #import "GlobalVar.h"
 #import "UserSettings.h"
+#import "CTFeedbackViewController.h"
 
 
 @interface SettingsVC ()<UITableViewDataSource,UITableViewDelegate>
@@ -43,9 +44,11 @@
     [self.only9Switcher setOn:[UserSettings isShowNineOnly] animated:NO];
     [self.only9Switcher addTarget:self action:@selector(switcherChanged:) forControlEvents:UIControlEventValueChanged];
     
+    
+    NSString *verStr= [NSString stringWithFormat:@"目前版本：%@",kAppVersion];
     self.tableModel =[TableModel tableModelWithGroupTitles:[@[@"設定",@"其他"] mutableCopy]
                                                       rows:[@[ @[@"只顯示九點電影"],
-                                                               @[@"回報與建議",@"目前版本"] ] mutableCopy]];
+                                                               @[@"回報與建議",verStr] ] mutableCopy]];
     
     
     [self addConstraint];
@@ -88,6 +91,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if([[self.tableModel objectAtIndexPath:indexPath] isEqualToString:@"回報與建議"])
+    {
+        CTFeedbackViewController *feedbackViewController = [CTFeedbackViewController controllerWithTopics:CTFeedbackViewController.defaultTopics
+                                                                                          localizedTopics:CTFeedbackViewController.defaultLocalizedTopics];
+        feedbackViewController.toRecipients = @[@"ctfeedback@example.com"];
+        feedbackViewController.useHTML = NO;
+        [self.navigationController pushViewController:feedbackViewController animated:YES];
+    }
 }
 
 #pragma mark - UITableView Datasource
