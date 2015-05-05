@@ -59,6 +59,7 @@
 {
     [self.playerView stopVideo];
     [self.playerView compress];
+    [self.control.playBtn setSelected:NO];
     [self.control setSliedrValue:0];
 }
 
@@ -115,7 +116,7 @@
 
 - (void)playerViewDidEnd:(ACYTPlayerView *)playerView videoId:(NSString *)vid
 {
-    
+    [self clean];
 }
 
 #pragma mark - Video Action

@@ -14,6 +14,7 @@
 #import "ACConstraintHelper.h"
 
 #import "MovieDetailTable.h"
+#import "PttTable.h"
 
 #import "AppDelegate.h"
 
@@ -21,6 +22,7 @@
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) MovieDetailTable *detailView;
+@property (nonatomic,strong) PttTable *pttView;
 
 @property (nonatomic,strong) UISegmentedControl *segControl;
 
@@ -42,6 +44,10 @@
     self.detailView = [[MovieDetailTable alloc] initWithMovie:self.movieModel];
     [self.view addSubview:self.detailView];
     
+    self.pttView = [[PttTable alloc] initWithTerm:self.movieModel.title_cn];
+    [self.view addSubview:self.pttView];
+    self.pttView.hidden = YES;
+    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.tableView setFrame:self.view.frame];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
@@ -52,7 +58,7 @@
     [self.view addSubview:self.tableView];
     self.tableView.hidden = YES;
     
-    NSMutableArray *itmes = [NSMutableArray arrayWithObjects:@"介紹", @"影片", nil];
+    NSMutableArray *itmes = [NSMutableArray arrayWithObjects:@"介紹", @"影評", @"影片",nil];
     self.segControl =[[UISegmentedControl alloc] initWithItems:itmes];
     self.segControl.tintColor = ColorRed;
     self.segControl.selectedSegmentIndex = 0;
@@ -66,6 +72,13 @@
     [self.tableView triggerPullToRefresh];
 }
 
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    self.pttView.frame = self.detailView.frame;
+}
+
 #pragma mark -  Private
 
 -(void)addConstraint
@@ -73,6 +86,7 @@
     [self.tableView   setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.segControl  setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.detailView  setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.pttView   setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     
     NSDictionary *metrics = @{@"space": @10,
@@ -99,6 +113,7 @@
                                                                             views:views]];
     
     [myConstraints addObjectsFromArray: [ACConstraintHelper constraintFrame:self.detailView with:self.tableView]];
+    [myConstraints addObjectsFromArray: [ACConstraintHelper constraintFrame:self.pttView with:self.tableView]];
 
     [self.view addConstraints:myConstraints];
 }
@@ -127,11 +142,19 @@
     if(self.segControl.selectedSegmentIndex == 0)
     {
         self.detailView.hidden = NO;
+        self.pttView.hidden = YES;
+        self.tableView.hidden = YES;
+    }
+    else if(self.segControl.selectedSegmentIndex == 1)
+    {
+        self.detailView.hidden = YES;
+        self.pttView.hidden = NO;
         self.tableView.hidden = YES;
     }
     else
     {
         self.detailView.hidden = YES;
+        self.pttView.hidden = YES;
         self.tableView.hidden = NO;
     }
 }

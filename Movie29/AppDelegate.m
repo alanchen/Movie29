@@ -12,6 +12,7 @@
 
 #import "GlobalVar.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -24,8 +25,7 @@
     [self initPlayer];
     [self initLayoutConfig];
     
-    [self hidePlayVideoLayout];
-
+    [self hidePlayVideoLayout];    
     return YES;
 }
 
