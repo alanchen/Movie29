@@ -8,6 +8,7 @@
 
 #import "BaseVC.h"
 #import "ACConstraintHelper.h"
+#import "AppDelegate.h"
 
 @interface BaseVC() <UIGestureRecognizerDelegate >
 
@@ -50,9 +51,9 @@
         [self disableBackGesture];
     else
         [self enableBackGesture];
-
+    
+    [((AppDelegate *)[UIApplication sharedApplication].delegate) loadAdIfNeed];
 }
-
 
 -(void)addBaseVCConstraint
 {

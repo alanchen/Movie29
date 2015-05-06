@@ -11,14 +11,21 @@
 #import "UIView+Position.h"
 #import "VideoPlayerView.h"
 
+@import GoogleMobileAds;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic,strong) VideoPlayerView *playerView;
+@property (strong, nonatomic) GADBannerView  *bannerView;
+
 
 -(void)showPlayVideoLayoutDefault;
 -(void)showPlayVideoLayoutExtend;
 -(void)hidePlayVideoLayout;
+
+-(void)loadAdIfNeed;
+
 
 @end
 

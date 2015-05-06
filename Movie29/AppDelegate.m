@@ -13,7 +13,9 @@
 #import "GlobalVar.h"
 
 
-@interface AppDelegate ()
+@interface AppDelegate () <GADBannerViewDelegate>
+
+@property (nonatomic)BOOL isAdLoaded;
 
 @end
 
@@ -24,6 +26,7 @@
     [self initWindow];
     [self initPlayer];
     [self initLayoutConfig];
+    [self initAdMob];
     
     [self hidePlayVideoLayout];    
     return YES;
@@ -78,13 +81,21 @@
     [self.window makeKeyAndVisible];
 }
 
-
 -(void)initPlayer
 {
     self.playerView = [[VideoPlayerView alloc] initWithFrame:CGRectMake(0, 0, self.window.width, self.window.width*0.56)];
     [self.playerView.control.expandBtn addTarget:self action:@selector(expandPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.playerView.control.closeBtn addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     [self.window addSubview:self.playerView];
+}
+
+-(void)initAdMob
+{
+    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    self.bannerView.rootViewController = [self rootNavi];
+    self.bannerView.delegate = self;
+    [self.window addSubview:self.bannerView];
 }
 
 -(void)initLayoutConfig
@@ -98,19 +109,38 @@
     
 }
 
+
+#pragma  mark - Admob
+
+-(void)loadAdIfNeed
+{
+    if(!self.isAdLoaded)
+        [self.bannerView loadRequest:[GADRequest request]];
+}
+
+- (void)adViewDidReceiveAd:(GADBannerView *)view
+{
+    self.isAdLoaded = YES;
+}
+
 #pragma mark - Video
 
 -(void)showPlayVideoLayoutDefault
 {
     [[self rootView] setHidden:NO];
     [self.playerView setHidden:NO];
-    
+    self.bannerView.hidden = NO;
+
     [UIView animateWithDuration:0.2 animations:^{
+        
+        float contentH = self.window.height - self.bannerView.height;
+
         self.playerView.top = 0;
         [self.playerView layoutToFitWidth:self.window.width];
         [self rootView].top = self.playerView.bottom;
-        [self rootView].height = self.window.height - self.playerView.height;
+        [self rootView].height = contentH - self.playerView.height;
         [self rootNavi].navigationBar.top = 0;
+        self.bannerView.top = [self rootView].bottom;
         
     } completion:^(BOOL finished) {
         
@@ -121,6 +151,7 @@
 {
     [[self rootView] setHidden:YES];
     [self.playerView setHidden:NO];
+    self.bannerView.hidden = YES;
 
     [UIView animateWithDuration:0.2 animations:^{
         [self.playerView layoutToFitFullScreenSize:self.window.size];
@@ -133,11 +164,16 @@
 {
     [[self rootView] setHidden:NO];
     [self.playerView setHidden:YES];
+    self.bannerView.hidden = NO;
     
     [UIView animateWithDuration:0.2 animations:^{
+        
+        float contentH = self.window.height - self.bannerView.height;
+        
         self.playerView.top = - self.playerView.height;
         [self rootView].top = IsGreaterThanIOS7?20:0;
-        [self rootView].height  = IsGreaterThanIOS7?self.window.height -20:self.window.height ;
+        [self rootView].height  = IsGreaterThanIOS7?contentH -20:contentH ;
+        self.bannerView.top = [self rootView].bottom;
         
     } completion:^(BOOL finished) {
         
