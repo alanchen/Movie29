@@ -31,16 +31,6 @@
         [backBtn sizeToFit];
         [self addTopLeftButton:backBtn target:self action:@selector(goback)];
     }
-
-    self.msgLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    self.msgLabel.backgroundColor =[UIColor clearColor];
-    self.msgLabel.font = [UIFont systemFontOfSize:14];
-    self.msgLabel.textColor = ColorRed;
-    self.msgLabel.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:self.msgLabel];
-    [self showMsgLabel:nil show:NO];
-    
-    [self addBaseVCConstraint];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -55,31 +45,6 @@
     [((AppDelegate *)[UIApplication sharedApplication].delegate) loadAdIfNeed];
 }
 
--(void)addBaseVCConstraint
-{
-    [self.msgLabel   setTranslatesAutoresizingMaskIntoConstraints:NO];
-  
-    NSDictionary *metrics = @{@"space": @10,
-                              @"space2x": @20};
-    
-    NSDictionary *views = @{@"label": self.msgLabel};
-    
-    NSMutableArray *myConstraints = [NSMutableArray array];
-    
-    
-    NSString *fv = @"V:|-(>=space2x)-[label(80)]-(>=space2x)-|";
-    [myConstraints addObjectsFromArray: [ACConstraintHelper constraintWidthFormat:fv
-                                                                          metrics:metrics
-                                                                            views:views]];
-    
-    NSString *fh1 = @"H:|-(space2x)-[label(>=10)]-(space2x)-|";
-    [myConstraints addObjectsFromArray: [ACConstraintHelper constraintWidthFormat:fh1
-                                                                          metrics:metrics
-                                                                            views:views]];
-    
-    [self.view addConstraints:myConstraints];
-    
-}
 -(void)enableBackGesture
 {
     // Enable iOS 7 back gesture
@@ -113,12 +78,6 @@
 }
 
 #pragma mark - Public
-
--(void)showMsgLabel:(NSString *)text show:(BOOL)show
-{
-    self.msgLabel.hidden = !show;
-    self.msgLabel.text = text?text:@"沒有內容";
-}
 
 -(void)addTopRightButton:(UIButton *) btn target:(id)t action:(SEL)a
 {
