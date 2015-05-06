@@ -49,6 +49,7 @@
 		E7EC76AA1AF9BFE7005F7C5F /* NSMutableAttributedString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EC76A71AF9BFE7005F7C5F /* NSMutableAttributedString+Util.m */; };
 		E7EC76AB1AF9BFE7005F7C5F /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EC76A91AF9BFE7005F7C5F /* UIView+Position.m */; };
 		E7EC76AE1AF9D0F7005F7C5F /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EC76AD1AF9D0F7005F7C5F /* WebVC.m */; };
+		E7EC76B31AFA005C005F7C5F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7EC76B21AFA005C005F7C5F /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,8 @@
 		E7EC76A91AF9BFE7005F7C5F /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		E7EC76AC1AF9D0F7005F7C5F /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
 		E7EC76AD1AF9D0F7005F7C5F /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
+		E7EC76AF1AF9FA4F005F7C5F /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		E7EC76B21AFA005C005F7C5F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7EC76B31AFA005C005F7C5F /* AdSupport.framework in Frameworks */,
 				7D93C5B61EBC3C06C0EAFECD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +152,7 @@
 		05FD81CA565D9FCB1BEB70CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7EC76B21AFA005C005F7C5F /* AdSupport.framework */,
 				4D83C075BF4A88FB18953283 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -172,6 +177,7 @@
 				E7B0C7231AF06D2F0086FC21 /* UserSettings.m */,
 				E79A44741AF89E6F00385D19 /* GoogleSearchParser.h */,
 				E79A44751AF89E6F00385D19 /* GoogleSearchParser.m */,
+				E7EC76AF1AF9FA4F005F7C5F /* Constants.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";

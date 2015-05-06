@@ -12,6 +12,10 @@
 
 #import "GlobalVar.h"
 
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
+
+
+#import <AdSupport/AdSupport.h>
 
 @interface AppDelegate () <GADBannerViewDelegate>
 
@@ -27,6 +31,7 @@
     [self initPlayer];
     [self initLayoutConfig];
     [self initAdMob];
+    [self initGA];
     
     [self hidePlayVideoLayout];    
     return YES;
@@ -92,10 +97,28 @@
 -(void)initAdMob
 {
     self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
-    self.bannerView.adUnitID = @"ca-app-pub-3940256099942544/2934735716";
+    self.bannerView.adUnitID = kAdMobUnitID;
     self.bannerView.rootViewController = [self rootNavi];
     self.bannerView.delegate = self;
     [self.window addSubview:self.bannerView];
+}
+
+-(void)initGA
+{
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:kGATrackingId];
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+
+    tracker.allowIDFACollection = YES;
 }
 
 -(void)initLayoutConfig
