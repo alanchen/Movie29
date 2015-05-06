@@ -81,6 +81,7 @@
     [self.playerView playVideoWithVideoId:vid];
     [self.control.playBtn setSelected:YES];
     [self.control.expandBtn setSelected:NO];
+     [self.control setSliedrValue:0];
     [self.control.titleLabel setText:title];
 }
 
