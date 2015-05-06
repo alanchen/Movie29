@@ -12,3 +12,6 @@ static NSString *kAdMobUnitID = @"ca-app-pub-3940256099942544/2934735716";
 
 static NSString *kGATrackingId = @"UA-46013282-10";
 
+static NSString *kCrashlyticsAPIKey = @"665fd4e82c885d0c0e6aeb2e5b16dbc601560575";
+
+

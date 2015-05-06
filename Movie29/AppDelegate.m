@@ -12,8 +12,9 @@
 
 #import "GlobalVar.h"
 
-#import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <Crashlytics/Crashlytics.h>
 
+#import <GoogleAnalytics-iOS-SDK/GAI.h>
 
 #import <AdSupport/AdSupport.h>
 
@@ -26,6 +27,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [Crashlytics startWithAPIKey:kCrashlyticsAPIKey];
     
     [self initWindow];
     [self initPlayer];
