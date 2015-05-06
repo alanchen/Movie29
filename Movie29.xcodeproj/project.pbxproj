@@ -12,7 +12,6 @@
 		E72E54D41AEF50CC000355F3 /* GlobalVar.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D31AEF50CC000355F3 /* GlobalVar.m */; };
 		E72E54D71AEF59CA000355F3 /* DetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D61AEF59CA000355F3 /* DetailVC.m */; };
 		E72E54DA1AEF670C000355F3 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E72E54D91AEF670C000355F3 /* BaseVC.m */; };
-		E78DF3461AF4E8990017F41C /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = E78DF3451AF4E8990017F41C /* UIView+Position.m */; };
 		E79A44761AF89E6F00385D19 /* GoogleSearchParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E79A44751AF89E6F00385D19 /* GoogleSearchParser.m */; };
 		E79A44791AF8CDF400385D19 /* PttTable.m in Sources */ = {isa = PBXBuildFile; fileRef = E79A44781AF8CDF400385D19 /* PttTable.m */; };
 		E79AA7CD1AF1BCB4001F9F5D /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E79AA7CC1AF1BCB4001F9F5D /* SettingsVC.m */; };
@@ -47,6 +46,9 @@
 		E7E024A91AEE874B00DFCDB5 /* ChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024A81AEE874B00DFCDB5 /* ChannelModel.m */; };
 		E7E024AC1AEE875900DFCDB5 /* MovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024AB1AEE875900DFCDB5 /* MovieModel.m */; };
 		E7E024AF1AEF14BA00DFCDB5 /* MainMovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E024AE1AEF14BA00DFCDB5 /* MainMovieCell.m */; };
+		E7EC76AA1AF9BFE7005F7C5F /* NSMutableAttributedString+Util.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EC76A71AF9BFE7005F7C5F /* NSMutableAttributedString+Util.m */; };
+		E7EC76AB1AF9BFE7005F7C5F /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EC76A91AF9BFE7005F7C5F /* UIView+Position.m */; };
+		E7EC76AE1AF9D0F7005F7C5F /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EC76AD1AF9D0F7005F7C5F /* WebVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,8 +63,6 @@
 		E72E54D61AEF59CA000355F3 /* DetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailVC.m; sourceTree = "<group>"; };
 		E72E54D81AEF670C000355F3 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		E72E54D91AEF670C000355F3 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
-		E78DF3441AF4E8990017F41C /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
-		E78DF3451AF4E8990017F41C /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
 		E79A44741AF89E6F00385D19 /* GoogleSearchParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleSearchParser.h; sourceTree = "<group>"; };
 		E79A44751AF89E6F00385D19 /* GoogleSearchParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleSearchParser.m; sourceTree = "<group>"; };
 		E79A44771AF8CDF400385D19 /* PttTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PttTable.h; sourceTree = "<group>"; };
@@ -125,6 +125,12 @@
 		E7E024AB1AEE875900DFCDB5 /* MovieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieModel.m; sourceTree = "<group>"; };
 		E7E024AD1AEF14BA00DFCDB5 /* MainMovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMovieCell.h; sourceTree = "<group>"; };
 		E7E024AE1AEF14BA00DFCDB5 /* MainMovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMovieCell.m; sourceTree = "<group>"; };
+		E7EC76A61AF9BFE7005F7C5F /* NSMutableAttributedString+Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Util.h"; sourceTree = "<group>"; };
+		E7EC76A71AF9BFE7005F7C5F /* NSMutableAttributedString+Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Util.m"; sourceTree = "<group>"; };
+		E7EC76A81AF9BFE7005F7C5F /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
+		E7EC76A91AF9BFE7005F7C5F /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
+		E7EC76AC1AF9D0F7005F7C5F /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
+		E7EC76AD1AF9D0F7005F7C5F /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +165,7 @@
 		E72E54D11AEF50BB000355F3 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				E78DF3441AF4E8990017F41C /* UIView+Position.h */,
-				E78DF3451AF4E8990017F41C /* UIView+Position.m */,
+				E7EC76A51AF9BFE7005F7C5F /* Category */,
 				E72E54D21AEF50CC000355F3 /* GlobalVar.h */,
 				E72E54D31AEF50CC000355F3 /* GlobalVar.m */,
 				E7B0C7221AF06D2F0086FC21 /* UserSettings.h */,
@@ -382,8 +387,21 @@
 				E72E54D61AEF59CA000355F3 /* DetailVC.m */,
 				E79AA7CB1AF1BCB4001F9F5D /* SettingsVC.h */,
 				E79AA7CC1AF1BCB4001F9F5D /* SettingsVC.m */,
+				E7EC76AC1AF9D0F7005F7C5F /* WebVC.h */,
+				E7EC76AD1AF9D0F7005F7C5F /* WebVC.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E7EC76A51AF9BFE7005F7C5F /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E7EC76A61AF9BFE7005F7C5F /* NSMutableAttributedString+Util.h */,
+				E7EC76A71AF9BFE7005F7C5F /* NSMutableAttributedString+Util.m */,
+				E7EC76A81AF9BFE7005F7C5F /* UIView+Position.h */,
+				E7EC76A91AF9BFE7005F7C5F /* UIView+Position.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,11 +521,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E79AA7D31AF38E28001F9F5D /* MovieDetailTable.m in Sources */,
+				E7EC76AB1AF9BFE7005F7C5F /* UIView+Position.m in Sources */,
 				E72E54D41AEF50CC000355F3 /* GlobalVar.m in Sources */,
 				E79AA7CD1AF1BCB4001F9F5D /* SettingsVC.m in Sources */,
 				E7E024AC1AEE875900DFCDB5 /* MovieModel.m in Sources */,
 				E7E024A61AEE856000DFCDB5 /* ChannelList.m in Sources */,
-				E78DF3461AF4E8990017F41C /* UIView+Position.m in Sources */,
 				E72E54DA1AEF670C000355F3 /* BaseVC.m in Sources */,
 				E7E023651AEE30A800DFCDB5 /* AppDelegate.m in Sources */,
 				E7E0249C1AEE365700DFCDB5 /* YTPlayerView.m in Sources */,
@@ -524,8 +542,10 @@
 				E72E54D01AEF3CC0000355F3 /* ChannelHeader.m in Sources */,
 				E7E024AF1AEF14BA00DFCDB5 /* MainMovieCell.m in Sources */,
 				E7B193601AF92B7700A73123 /* SearchResultCell.m in Sources */,
+				E7EC76AA1AF9BFE7005F7C5F /* NSMutableAttributedString+Util.m in Sources */,
 				E7E0248D1AEE365700DFCDB5 /* YouTubeAPIService.m in Sources */,
 				E7E0248F1AEE365700DFCDB5 /* ACConstraintHelper.m in Sources */,
+				E7EC76AE1AF9D0F7005F7C5F /* WebVC.m in Sources */,
 				E79AA7D01AF1C197001F9F5D /* TableModel.m in Sources */,
 				E7E0249D1AEE365700DFCDB5 /* YouTubeListTableCell.m in Sources */,
 				E7E023621AEE30A800DFCDB5 /* main.m in Sources */,

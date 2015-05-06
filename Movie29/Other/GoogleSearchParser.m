@@ -10,9 +10,9 @@
 
 @implementation GoogleSearchParser
 
-+(void)searchPttMovieWithTerm:(NSString *)term
-                         page:(NSInteger)page
-            completionHandler:(void (^)(NSMutableArray *res)) handler //GModel array
++(NSOperationQueue *)searchPttMovieWithTerm:(NSString *)term
+                                       page:(NSInteger)page
+                          completionHandler:(void (^)(NSMutableArray *res)) handler //GModel array
 {
     NSString *googleUrl = @"https://www.google.com.tw/search?oe=UTF-8&ie=UTF-8";
     googleUrl = [googleUrl stringByAppendingString:[NSString stringWithFormat:@"&start=%ld",(long)page]];
@@ -31,17 +31,20 @@
     
     NSLog(@"urlStr = %@",urlStr);
     
+    NSOperationQueue *queue =
     [self requestWithUrl:url completionHandler:^(NSString *res, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSMutableArray * result = [self parseGoogleResultHTMLText:res];
             handler(result);
         });
     }];
+    
+    return queue;
 }
 
 #pragma  mark - Private
 
-+(void)requestWithUrl:(NSURL *)url completionHandler:(void (^)(NSString *res, NSError* error)) handler
++(NSOperationQueue *)requestWithUrl:(NSURL *)url completionHandler:(void (^)(NSString *res, NSError* error)) handler
 {
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url
                                                 cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -50,10 +53,13 @@
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    
         NSString *res = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         if(handler)
             handler(res,error);
     }];
+    
+    return queue;
 }
 
 +(NSMutableArray *)parseGoogleResultHTMLText:(NSString *)html

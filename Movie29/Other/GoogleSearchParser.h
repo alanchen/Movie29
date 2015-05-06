@@ -11,9 +11,9 @@
 
 @interface GoogleSearchParser : NSObject
 
-+(void)searchPttMovieWithTerm:(NSString *)term
-                         page:(NSInteger)page
-            completionHandler:(void (^)(NSMutableArray *res)) handler; //GModel array
++(NSOperationQueue *)searchPttMovieWithTerm:(NSString *)term
+                                       page:(NSInteger)page
+                          completionHandler:(void (^)(NSMutableArray *res)) handler; //GModel array
 
 @end
 
@@ -23,6 +23,7 @@
 @property (nonatomic,strong)NSString *subtitle;
 @property (nonatomic,strong)NSString *link;
 @property (nonatomic,strong)NSString *desc;
+
 
 @end
 

@@ -10,10 +10,21 @@
 #import <UIKit/UIKit.h>
 #import "GoogleSearchParser.h"
 
+
+@protocol PttTableDelegate <NSObject>
+
+@optional
+-(void)pttTableDidSelect:(GModel *)model;
+
+@end
+
+
 @interface PttTable : UIView
 
 @property (nonatomic,strong) UITableView *tableView;
 
 - (instancetype)initWithTerm:(NSString *)term;
+
+@property (nonatomic,weak)id<PttTableDelegate> delegate;
 
 @end

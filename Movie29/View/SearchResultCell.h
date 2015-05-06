@@ -11,4 +11,7 @@
 
 @interface SearchResultCell : UITableViewCell
 
+@property (nonatomic,strong) UILabel *titleLabel;
+@property (nonatomic,strong) UILabel *subtitleLabel;
+
 @end

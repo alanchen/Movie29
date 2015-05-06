@@ -18,7 +18,9 @@
 
 #import "AppDelegate.h"
 
-@interface DetailVC () <UITableViewDataSource,UITableViewDelegate>
+#import "WebVC.h"
+
+@interface DetailVC () <UITableViewDataSource,UITableViewDelegate,PttTableDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) MovieDetailTable *detailView;
@@ -45,6 +47,7 @@
     [self.view addSubview:self.detailView];
     
     self.pttView = [[PttTable alloc] initWithTerm:self.movieModel.title_cn];
+    self.pttView.delegate  = self;
     [self.view addSubview:self.pttView];
     self.pttView.hidden = YES;
     
@@ -58,7 +61,7 @@
     [self.view addSubview:self.tableView];
     self.tableView.hidden = YES;
     
-    NSMutableArray *itmes = [NSMutableArray arrayWithObjects:@"介紹", @"影評", @"影片",nil];
+    NSMutableArray *itmes = [NSMutableArray arrayWithObjects:@"影片介紹", @"相關影評", @"相關影片",nil];
     self.segControl =[[UISegmentedControl alloc] initWithItems:itmes];
     self.segControl.tintColor = ColorRed;
     self.segControl.selectedSegmentIndex = 0;
@@ -174,6 +177,16 @@
     [self.tableView.pullToRefreshView setTitle:@"更新中 ..." forState:SVPullToRefreshStateLoading];
     self.tableView.pullToRefreshView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
     
+}
+
+#pragma mark - PttTable Delegate
+
+-(void)pttTableDidSelect:(GModel *)model
+{    
+    WebVC *vc = [[WebVC alloc] init];
+    vc.url = model.link;
+    vc.title = model.title;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - UITableView Delegate
