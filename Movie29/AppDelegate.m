@@ -224,6 +224,7 @@
 -(void)closeAction
 {
     [self.playerView clean];
+    [self.playerView.playerView compress];
     [self hidePlayVideoLayout];
 }
 

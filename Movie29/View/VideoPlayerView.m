@@ -58,7 +58,6 @@
 -(void)clean
 {
     [self.playerView stopVideo];
-    [self.playerView compress];
     [self.control.playBtn setSelected:NO];
     [self.control setSliedrValue:0];
 }
