@@ -36,7 +36,8 @@
     [self initAdMob];
     [self initGA];
     
-    [self hidePlayVideoLayout];    
+    [self hidePlayVideoLayout];
+    
     return YES;
 }
 

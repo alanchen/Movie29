@@ -26,6 +26,8 @@
 #import "DetailVC.h"
 #import "SettingsVC.h"
 
+static NSString *kTitle = @"九點看電影";
+
 @interface ChannelList ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -43,7 +45,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"今晚九點電影";
+    self.title = kTitle;
     
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setBackgroundImage:[UIImage imageNamed:@"settings_icon"] forState:UIControlStateNormal];
@@ -139,7 +141,7 @@
 
 -(void)getChannelList
 {
-    [APIHelper apiGetMovieListWithSuccess:^(NSMutableArray *list, NSTimeInterval time,id responseObject) {
+    [APIHelper apiGetMovieListWithSuccess:^(NSMutableArray *list, NSString *today,id responseObject) {
         [self.tableView.pullToRefreshView stopAnimating];
         
         self.localList = [NSMutableArray array];
@@ -153,6 +155,9 @@
                 [self.westList addObject:c];
         }
         
+        if([today length])
+            self.title = [[kTitle stringByAppendingString:@" "] stringByAppendingString:today];
+
         [self reloadTable];
         
     } failure:^(NSError *error) {

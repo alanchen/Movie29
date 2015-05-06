@@ -10,7 +10,7 @@
 
 @implementation APIHelper
 
-+(AFHTTPRequestOperation *)apiGetMovieListWithSuccess:(void (^)(NSMutableArray *list, NSTimeInterval time ,id responseObject))success
++(AFHTTPRequestOperation *)apiGetMovieListWithSuccess:(void (^)(NSMutableArray *list, NSString *today ,id responseObject))success
                                               failure:(void (^)(NSError *error))failure
 
 {
@@ -30,11 +30,10 @@
                                               [list addObject:c];
                                           }
                                           
-                                          
-                                          NSTimeInterval time = [[responseObject objectForKey:@"date"] doubleValue];
+//                                          NSTimeInterval time = [[responseObject objectForKey:@"date"] doubleValue];
                                           
                                           if(success)
-                                              success(list,time,responseObject);
+                                              success(list,[responseObject objectForKey:@"today"],responseObject);
                                       }
                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                           if(failure)
