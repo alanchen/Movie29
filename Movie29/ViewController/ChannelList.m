@@ -27,6 +27,8 @@
 #import "SettingsVC.h"
 
 static NSString *kTitle = @"九點看電影";
+static NSString *kCacheListKey = @"kCacheListKey";
+
 
 @interface ChannelList ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -73,6 +75,8 @@ static NSString *kTitle = @"九點看電影";
     [self setupPullTORefresh];
     
     [self.tableView triggerPullToRefresh];
+    
+    [self reloadTableWithChacheData];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -142,23 +146,30 @@ static NSString *kTitle = @"九點看電影";
 -(void)getChannelList
 {
     [APIHelper apiGetMovieListWithSuccess:^(NSMutableArray *list, NSString *today,id responseObject) {
+        
         [self.tableView.pullToRefreshView stopAnimating];
         
-        self.localList = [NSMutableArray array];
-        self.westList = [NSMutableArray array];
-        
-        for(ChannelModel *c in list)
+        if([list count])
         {
-            if([c.type isEqualToString:@"local"])
-                [self.localList addObject:c];
-            else
-                [self.westList addObject:c];
+            self.localList = [NSMutableArray array];
+            self.westList = [NSMutableArray array];
+            
+            for(ChannelModel *c in list)
+            {
+                if([c.type isEqualToString:@"local"])
+                    [self.localList addObject:c];
+                else
+                    [self.westList addObject:c];
+            }
+            
+            if([today length])
+                self.title = [[kTitle stringByAppendingString:@" "] stringByAppendingString:today];
+            
+            [self reloadTable];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:responseObject forKey:kCacheListKey];
+            [[NSUserDefaults standardUserDefaults] synchronize];
         }
-        
-        if([today length])
-            self.title = [[kTitle stringByAppendingString:@" "] stringByAppendingString:today];
-
-        [self reloadTable];
         
     } failure:^(NSError *error) {
         [self.tableView.pullToRefreshView stopAnimating];
@@ -176,7 +187,6 @@ static NSString *kTitle = @"九點看電影";
     [self reloadTable];
 }
 
-
 -(void)reloadTable
 {    
     if(self.segControl.selectedSegmentIndex == 0)
@@ -185,6 +195,40 @@ static NSString *kTitle = @"九點看電影";
         self.channelList = self.localList;
     
     [self.tableView reloadData];
+}
+
+-(void)reloadTableWithChacheData
+{
+    id  responseObject = [[NSUserDefaults standardUserDefaults] objectForKey:kCacheListKey];
+    
+    if(responseObject)
+    {
+        NSMutableArray *list = [NSMutableArray array];
+        
+        for(id obj in [responseObject objectForKey:@"channels"])
+        {
+            ChannelModel *c = [ChannelModel modelWithData:obj];
+            [list addObject:c];
+        }
+        
+        NSString *today = [responseObject objectForKey:@"today"];
+    
+        self.localList = [NSMutableArray array];
+        self.westList = [NSMutableArray array];
+        
+        for(ChannelModel *c in list)
+        {
+            if([c.type isEqualToString:@"local"])
+                [self.localList addObject:c];
+            else
+                [self.westList addObject:c];
+        }
+        
+        if([today length])
+            self.title = [[kTitle stringByAppendingString:@" "] stringByAppendingString:today];
+        
+        [self reloadTable];
+    }
 }
 
 #pragma mark - UITableView Delegate
