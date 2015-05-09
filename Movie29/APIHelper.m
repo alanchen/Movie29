@@ -14,7 +14,7 @@
                                               failure:(void (^)(NSError *error))failure
 
 {
-    NSString *url = @"http://alanchenweb.azurewebsites.net/api/movies";
+    NSString *url = @"http://movie29.azurewebsites.net/api/movies";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
