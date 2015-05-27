@@ -448,6 +448,7 @@
 				TargetAttributes = {
 					E7E0235B1AEE30A800DFCDB5 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = G7UYAV3U3M;
 					};
 				};
 			};
@@ -680,6 +681,8 @@
 			baseConfigurationReference = A432779852738E6850A2448F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -688,6 +691,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "今晚九點電影";
+				PROVISIONING_PROFILE = "ea2b5c94-d29f-4337-bc97-70f34647f10b";
 			};
 			name = Debug;
 		};
@@ -696,6 +700,8 @@
 			baseConfigurationReference = 737B8A030BC5C9CF00DB6D5E /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -704,6 +710,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "今晚九點電影";
+				PROVISIONING_PROFILE = "ea2b5c94-d29f-4337-bc97-70f34647f10b";
 			};
 			name = Release;
 		};
